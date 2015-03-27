@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0")
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   
-  #spec.add_runtime_dependency(%q<randexp>, ["~> 0"])
+  spec.add_runtime_dependency("praxis", ["~> 0"])
 
   spec.add_development_dependency("bundler", ["~> 1.6"])
   spec.add_development_dependency("guard", ["~> 2"])

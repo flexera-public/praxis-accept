@@ -1,3 +1,7 @@
+require 'active_support/concern'
+require 'active_support/deprecation'
+require 'active_support/core_ext/class'
+
 module Praxis::Accept
   module Response
     # We need to detour an existing method when we're included in Praxis::Response
@@ -14,12 +18,16 @@ module Praxis::Accept
       case @body
       when Hash, Array
         acceptable_content_type = request.acceptable_content_types.detect do |mti|
-          Praxis::Application.instance.handlers[mti.handler_name] && mti.handler_name
+          Praxis::Application.instance.handlers.key?(mti.handler_name)
         end
 
         if acceptable_content_type
           # Set suffix of response content_type so Praxis core will use the handler we found
           self.content_type = self.content_type + acceptable_content_type.handler_name
+        else
+          # Explicitly tell Praxis core to use JSON; also ensure that the content
+          # type has a suffix so the client won't be confused
+          self.content_type = self.content_type + 'json'
         end
       end
 
