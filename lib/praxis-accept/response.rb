@@ -25,10 +25,10 @@ module Praxis::Accept
 
         content_type = self.content_type
 
-        if acceptable_content_type && content_type.suffix.empty?
+        if acceptable_content_type
           # Set handler-specific suffix so Praxis core will use the handler we found
           self.content_type = content_type + acceptable_content_type.handler_name
-        elsif self.content_type.suffix.empty?
+        elsif content_type.suffix.empty?
           # Set JSON suffix to guarantee core JSON encoding and provide predictable
           # behavior for client
           self.content_type = content_type + 'json'

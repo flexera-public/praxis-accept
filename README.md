@@ -11,7 +11,7 @@ specifically aware of each format.
 
 Add praxis-accept to your `Gemfile`:
 
-    gem 'praxis-accept', '~> 1.0'
+    gem 'praxis-accept', '~> 0'
 
 Add the plugin to your application's `config/environment.rb` and ensure that all of the
 handlers that your application will use are registered with the Praxis core:
