@@ -1,9 +1,13 @@
 Encoding.default_external = Encoding::UTF_8
 
-require 'simplecov'
 require 'pry'
-
+require 'simplecov'
 require 'praxis'
+
+SimpleCov.start do
+  add_filter "/spec/"
+end
+
 require 'praxis-accept'
 
 RSpec.configure do |config|

@@ -10,14 +10,11 @@ module Praxis::Accept
     # @todo order acceptable content types by 'q' parameters, not by lexical order
     def acceptable_content_types
       accept_header = @env[ACCEPT_NAME] || ''
-      acceptable = accept_header.split(',')
+      acceptable = accept_header.split(/\s*,\s*/)
 
       acceptable = acceptable.map do |media_range|
         begin
           Praxis::MediaTypeIdentifier.new(media_range)
-        rescue ArgumentError
-          # Malformed type identifier; assume it's the "type" of a type/subtype
-          Praxis::MediaTypeIdentifier.new(type: media_range)
         end
       end
     end
