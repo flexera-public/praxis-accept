@@ -28,7 +28,7 @@ class StubRequest
 end
 
 class StubResponse
-  attr_reader :request
+  attr_accessor :request
   attr_accessor :body, :content_type
 
   def initialize(body=nil, ct=nil)

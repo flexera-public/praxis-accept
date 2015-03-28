@@ -28,6 +28,17 @@ describe Praxis::Accept::Response do
       let(:body) { {description: 'My widget', color: 'red'} }
       let(:content_type) { Praxis::MediaTypeIdentifier.load('application/vnd.acme.widget') }
 
+      context 'when request is nil (e.g. functional test)' do
+        before do
+          subject.request = nil
+        end
+
+        it 'uses JSON' do
+          subject.encode_with_content_negotiation!
+          expect(subject.content_type.to_s).to eq('application/vnd.acme.widget+json')
+        end
+      end
+
       context 'when a suitable handler is available' do
         before do
           subject.request.env['HTTP_ACCEPT'] = 'application/json'
