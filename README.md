@@ -1,7 +1,11 @@
-# Praxis::Accept [![TravisCI][travis-img-url]][travis-ci-url]
+# Praxis::Accept [![TravisCI][travis-img-url]][travis-ci-url] [![Coverage Status][coveralls-img-url]][coveralls-url] [![Dependency Status][gemnasium-img-url]][gemnasium-url]
 
 [travis-img-url]:https://travis-ci.org/rightscale/praxis-accept.svg?branch=master
 [travis-ci-url]:https://travis-ci.org/rightscale/praxis-accept
+[coveralls-img-url]:https://coveralls.io/repos/rightscale/praxis-accept/badge.svg?branch=master&service=github
+[coveralls-url]:https://coveralls.io/github/rightscale/praxis-accept?branch=master
+[gemnasium-img-url]:https://gemnasium.com/rightscale/praxis-accept.svg
+[gemnasium-url]:https://gemnasium.com/rightscale/praxis-accept
 
 Praxis::Accept is a plugin that uses HTTP content negotiation to deliver API
 responses in various data formats without requiring your application to be
