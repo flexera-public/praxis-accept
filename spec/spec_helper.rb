@@ -1,10 +1,10 @@
 Encoding.default_external = Encoding::UTF_8
 
 require 'pry'
-require 'simplecov'
+require 'coveralls'
 require 'praxis'
 
-SimpleCov.start do
+Coveralls.wear! do
   add_filter "/spec/"
 end
 
